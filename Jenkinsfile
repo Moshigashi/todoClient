@@ -17,14 +17,6 @@ pipeline {
                 echo 'Compile the source code'
                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
-            post {
-                always{
-                    emailext body: 'The pipeline has failed, please go to Jenkins and check the problem', subject: 'Pipeline status', to: 'alexandre.marie@efrei.net'
-                }
-                success {
-                    archiveArtifacts 'target/todoClient-1.0-SNAPSHOT.war'
-                }
-            }
         }
         stage('Build') {
           steps {

@@ -16,7 +16,7 @@ pipeline {
                     emailext body: 'The pipeline has failed, please go to Jenkins and check the problem', subject: 'Pipeline status', to: 'alexandre.marie@efrei.net'
                 }
                 success {
-                    archiveArtifacts 'target/*.jar'
+                    archiveArtifacts 'target/todoClient-1.0-SNAPSHOT.war'
                 }
             }
         }
